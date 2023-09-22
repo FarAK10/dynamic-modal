@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Add {{data.formName}}</h1>
+<div mat-dialog-content>
+  <ng-template  [cdkPortalOutlet]="portal" (attached)="recieveReference($event)" ></ng-template>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-button mat-dialog-close>Not</button>
+  <button mat-button (click)="onSave()" *ngIf="formClass" [disabled]="!formClass.form.valid ">Save</button>
+</div>
