@@ -20,11 +20,10 @@ export class ModalComponent implements OnInit,OnDestroy {
       this.portal = new ComponentPortal(this.data.component)
   }
   onSave(){
+    // u can just just use this.formClass.onSave().subscribe() but I shown method above for visible functionality
      this.formClass.onSave().pipe(takeUntil(this.destroy$)).subscribe((savedItem)=>{
       this.dialogRef.close(savedItem)
      })
-
-
   }
   recieveReference(ref:CdkPortalOutletAttachedRef){
       const compRef = ref as ComponentRef<IFormClass>;
